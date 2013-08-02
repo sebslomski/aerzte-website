@@ -1,0 +1,285 @@
+@green: #24c444;
+@text: #61513b;
+@red: #c42424;
+@border: #ad9e8a;
+@link: #cc4919;
+@action: #4fa6be;
+@action-hover: #3b899f;
+
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+
+body {
+    color: #61513b;
+    font-family: 'Helvetica Neue', helvetica;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+.container {
+    float: left;
+    width: 100%;
+
+    background: #f3f1e8;
+}
+
+
+
+section {
+    margin: 15px 0;
+    float: left;
+    width: 100%;
+
+    h3 {
+        margin: 0;
+        margin-bottom: 15px;
+
+        color: @link;
+        font-size: 22px;
+        font-weight: 500;
+    }
+}
+
+
+.status {
+    padding: 10px 20px;
+
+    background: fade(@green, 50%);
+
+    color: #fff;
+
+    &.s-is-closed {
+        background: fade(@red, 50%);
+    }
+}
+
+
+.intro-address {
+    text-decoration: none;
+    color: @text;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.appointment {
+    a,
+    div {
+        padding: 20px 40px;
+        display: inline-block;
+
+        border-radius: 3px;
+
+        background: @action;
+
+        color: #fff;
+        text-decoration: none;
+    }
+
+    a {
+        &:hover {
+            background: @action-hover;
+
+            text-decoration: underline;
+        }
+    }
+
+    div {
+        display: none;
+    }
+}
+
+
+.location {
+    position: relative;
+
+    img {
+        width: 100%;
+
+        border: 1px solid @border;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.location-img-large {
+    display: none;
+}
+
+.location-open-in-maps {
+    position: absolute;
+    bottom: 22px;
+    right: 10px;
+
+    padding: 6px;
+
+    border-radius: 4px;
+
+    background: fade(#000, 60%);
+
+    color: #fff;
+}
+
+
+.opening-times {
+    padding: 0 20px;
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+        text-align: left;
+
+        li {
+            float: left;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            min-height: 70px;
+
+            border-top: 1px solid fade(@green, 50%);
+
+            div {
+                float: left;
+                width: 50%;
+            }
+
+            &.s-is-today {
+                border-top: none;
+
+                background: fade(@green, 50%);
+
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+.contact {
+    a {
+        padding: 20px 0;
+        display: block;
+        float: left;
+        width: 50%;
+
+        background: @action;
+
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            background: @action-hover;
+
+            text-decoration: underline;
+        }
+
+        &.contact-phone {
+            border-right: 1px solid #fff;
+        }
+    }
+}
+
+
+
+@media (min-width: 600px) {
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .appointment {
+        a {
+            display: none;
+        }
+
+        div {
+            display: inline-block;
+        }
+    }
+
+    .location {
+        .location-open-in-maps {
+            display: none;
+        }
+
+        &:hover {
+            .location-open-in-maps {
+                display: block;
+            }
+        }
+
+        .location-img-small {
+            display: none;
+        }
+
+        .location-img-large {
+            display: block;
+        }
+    }
+
+    .contact {
+        a.contact-phone {
+            cursor: default;
+
+            &:hover {
+                background: @action;
+
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    body {
+        width: 800px;
+    }
+
+    .opening-times-wrapper {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+
+        ul {
+            display: table-row;
+
+            li {
+                display: table-cell;
+                float: none;
+                width: 1px;
+                padding: 0;
+
+                border: none;
+
+                vertical-align: top;
+
+                div  {
+                    width: 100%;
+                    padding: 10px 0;
+
+                    white-space: nowrap;
+                    text-align: center;
+
+                    span {
+                        display: none;
+                    }
+
+                    &:first-child {
+                        border-bottom: 1px solid fade(@green, 50%);
+                    }
+                }
+            }
+        }
+    }
+}
